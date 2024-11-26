@@ -14,7 +14,7 @@
 
 				Console.WriteLine("Áruház rendszer");
 				Console.WriteLine("Válassz műveletet:");
-				Console.WriteLine("1. Termékek listázása a raktárban");
+				Console.WriteLine("1. Raktár termékeinek megtekintése");
 				Console.WriteLine("2. Termék hozzáadása a kosárhoz");
 				Console.WriteLine("3. Kosár tartalmának megjelenítése");
 				Console.WriteLine("4. Termék eltávolítása a kosárból");
