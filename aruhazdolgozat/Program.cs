@@ -21,7 +21,9 @@
 				Console.WriteLine("5. Kosár ürítése");
 				Console.WriteLine("6. Vásárlás szimuláció");
 				Console.WriteLine("7. Legdrágább termék a raktárban");
-				Console.WriteLine("8. Kilépés");
+                Console.WriteLine("8. Legolcsóbb termék a raktárban");
+				Console.WriteLine("9. Kosár statisztikája");
+                Console.WriteLine("0. Kilépés");
 				Console.WriteLine();
 
 				int valasz = int.Parse(Console.ReadLine());
@@ -50,6 +52,12 @@
 						LegdragabbTermek();
 						break;
 					case 8:
+						LegolcsobbTermek();
+						break;
+					case 9:
+						KosarStatisztika();
+						break;
+					case 0:
 						Console.WriteLine("Kilépés...");
 						return;
 					default:
@@ -204,6 +212,48 @@
 				}
 			}
 			Console.WriteLine($"A legdrágább termék a raktárban: {legdragabbTermek} - {legdragabbAr} Ft");
+			Console.WriteLine();
+		}
+
+		static void LegolcsobbTermek()
+		{
+			Console.WriteLine();
+			double legolcsobbAr = double.MaxValue;
+			string legolcsobbTermek = "";
+			for (int i = 0; i < raktarArak.Length; i++)
+			{
+				if (raktarArak[i] < legolcsobbAr)
+				{
+					legolcsobbAr = raktarArak[i];
+					legolcsobbTermek = raktarTermekek[i];
+				}
+			}
+			Console.WriteLine($"A legolcsóbb termék a raktárban: {legolcsobbTermek} - {legolcsobbAr} Ft");
+			Console.WriteLine();
+		}
+
+		static void KosarStatisztika()
+		{
+			Console.WriteLine();
+			int osszesTermek = 0;
+			foreach (var item in kosar)
+			{
+				osszesTermek += item.Item2;
+			}
+			int kulonbozoTermekekSzama = kosar.Count;
+			double osszErtek = 0;
+			foreach (var item in kosar)
+			{
+				for (int i = 0; i < raktarTermekek.Length; i++)
+				{
+					if (raktarTermekek[i].ToLower() == item.Item1.ToLower())
+					{
+						double termekAr = raktarArak[i];
+						osszErtek += item.Item2 * termekAr;
+						break;
+					}
+				}
+			}
 			Console.WriteLine();
 		}
 	}
