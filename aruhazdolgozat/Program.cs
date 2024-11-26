@@ -274,17 +274,70 @@
 
 		static void RaktarKeszletEllenorzes()
 		{
-
+			Console.WriteLine();
+			Console.WriteLine("Alacsony készletű termékek (5 db alatt):");
+			for (int i = 0; i < raktarKeszletek.Length; i++)
+			{
+				if (raktarKeszletek[i] > 0 && raktarKeszletek[i] < 5)
+				{
+			            Console.WriteLine($"{raktarTermekek[i]} - Készlet: {raktarKeszletek[i]} db");
+			        }
+			}
+			Console.WriteLine();
 		}
 
 		static void UjTermek()
 		{
-
+		Console.WriteLine();
+		Console.WriteLine("Add meg az új termék nevét:");
+		string ujTermekNev = Console.ReadLine();
+		
+		Console.WriteLine("Add meg az új termék árát:");
+		double ujTermekAr = double.Parse(Console.ReadLine());
+		
+		Console.WriteLine("Add meg az új termék készletét:");
+		int ujTermekKeszlet = int.Parse(Console.ReadLine());
+		
+		Array.Resize(ref raktarTermekek, raktarTermekek.Length + 1);
+		Array.Resize(ref raktarArak, raktarArak.Length + 1);
+		Array.Resize(ref raktarKeszletek, raktarKeszletek.Length + 1);
+		
+		raktarTermekek[^1] = ujTermekNev;
+		raktarArak[^1] = ujTermekAr;
+		raktarKeszletek[^1] = ujTermekKeszlet;
+		
+		Console.WriteLine("Az új termék hozzáadva a raktárhoz.");
+		Console.WriteLine();
 		}
 
 		static void TermekekRendezese()
 		{
-
+		Console.WriteLine();
+		Console.WriteLine("A termékek ár szerint növekvő sorrendben rendezve:");
+		
+		for (int i = 0; i < raktarArak.Length - 1; i++)
+		{
+			for (int j = i + 1; j < raktarArak.Length; j++)
+			{
+			        if (raktarArak[i] > raktarArak[j])
+			        {
+				        double tempAr = raktarArak[i];
+				        raktarArak[i] = raktarArak[j];
+				        raktarArak[j] = tempAr;
+				
+				        string tempTermek = raktarTermekek[i];
+				        raktarTermekek[i] = raktarTermekek[j];
+				        raktarTermekek[j] = tempTermek;
+				
+				        int tempKeszlet = raktarKeszletek[i];
+				        raktarKeszletek[i] = raktarKeszletek[j];
+				        raktarKeszletek[j] = tempKeszlet;
+			        }
+			}
+		}
+		
+		TermekekListazasa();
+		Console.WriteLine();
 		}
 	}
 }
