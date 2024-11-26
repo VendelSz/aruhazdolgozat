@@ -22,8 +22,11 @@
 				Console.WriteLine("6. Vásárlás szimuláció");
 				Console.WriteLine("7. Legdrágább termék a raktárban");
                 Console.WriteLine("8. Legolcsóbb termék a raktárban");
-				Console.WriteLine("9. Kosár statisztikája");
-                Console.WriteLine("0. Kilépés");
+				Console.WriteLine("9. Kosár statisztikája és teljes értéke");
+				Console.WriteLine("10. Raktárkészlet ellenőrzése");
+				Console.WriteLine("11. Új termék felvétele a raktárba");
+				Console.WriteLine("12. Termékek rendezése ár szerint");
+				Console.WriteLine("13. Kilépés");
 				Console.WriteLine();
 
 				int valasz = int.Parse(Console.ReadLine());
@@ -57,7 +60,16 @@
 					case 9:
 						KosarStatisztika();
 						break;
-					case 0:
+					case 10:
+						RaktarKeszletEllenorzes();
+						break;
+					case 11:
+						UjTermek();
+						break;
+					case 12:
+						TermekekRendezese();
+						break;
+					case 13:
 						Console.WriteLine("Kilépés...");
 						return;
 					default:
@@ -255,6 +267,21 @@
 				}
 			}
 			Console.WriteLine();
+		}
+
+		static void RaktarKeszletEllenorzes()
+		{
+
+		}
+
+		static void UjTermek()
+		{
+
+		}
+
+		static void TermekekRendezese()
+		{
+
 		}
 	}
 
