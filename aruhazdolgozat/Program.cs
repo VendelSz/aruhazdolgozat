@@ -21,7 +21,7 @@
 				Console.WriteLine("5. Kosár ürítése");
 				Console.WriteLine("6. Vásárlás szimuláció");
 				Console.WriteLine("7. Legdrágább termék a raktárban");
-                Console.WriteLine("8. Legolcsóbb termék a raktárban");
+				Console.WriteLine("8. Legolcsóbb termék a raktárban");
 				Console.WriteLine("9. Kosár statisztikája és teljes értéke");
 				Console.WriteLine("10. Raktárkészlet ellenőrzése");
 				Console.WriteLine("11. Új termék felvétele a raktárba");
@@ -107,7 +107,7 @@
 
 					if (raktarKeszletek[i] >= mennyiseg)
 					{
-						kosar.Add(new Tuple < string, int > (termekNev, mennyiseg));
+						kosar.Add(new Tuple<string, int>(termekNev, mennyiseg));
 						raktarKeszletek[i] -= mennyiseg;
 						Console.WriteLine("A termék hozzáadva a kosárhoz.");
 					}
@@ -266,6 +266,9 @@
 					}
 				}
 			}
+			Console.WriteLine($"A kosárban összesen: {osszesTermek} db termék található.");
+			Console.WriteLine($"Különböző termékek száma: {kulonbozoTermekekSzama} db.");
+			Console.WriteLine($"A kosár összértéke: {osszErtek} Ft");
 			Console.WriteLine();
 		}
 
@@ -284,8 +287,6 @@
 
 		}
 	}
-
-
 }
 
 
